@@ -1,0 +1,46 @@
+
+<div class="container my-5 text-white">
+  <h4 class="mb-4 "> Peliculas - Popular </h4>
+
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-6 g-3 justify-content-center">
+    @for (movie of movies; track movie.id) {
+    <div class="col">
+      <div class=" movie-card h-100 position-relative" style="width: 100%; max-width: 200px; height: 150px;">
+        <!-- Badge si es favorita -->
+        @if (movie.isNew) {
+        <p class="badge position-absolute top-0 end-0 m-1 "
+          style="background-color: rgba(0, 0, 0, 0.767); font-weight: 500; font-size: 13x;"> 🎞 EN EL CINE </p> }
+        <button class="btn  me-0 fs-5 badge position-absolute bottom-0 end-0 m-0 " (click)="toggleFavorite(movie)">
+          {{ movie.isFavorite ? '❤️' : '🤍' }}
+        </button>
+
+        <img [src]="movie.poster" class="card-img-top" alt="Póster de {{ movie.title }}"
+          style="width: 100%; max-width:220px; height: 250px;" class=" rounded-3">
+
+        <button class="btn play-btn position-absolute top-50 start-50 translate-middle ">
+          <img style="width: 80%;" src="assets/img/playLogowhite.png" alt="" (click)="playVideo(movie.url)">
+        </button>
+
+        <!-- <div class="card-body d-flex flex-column p-1">
+          <div class="d-flex justify-content-between align-items-center mb-3 pt-1">
+            <p class="card-title text-center" style="color: rgb(95, 93, 93); font-weight: 500;">
+              {{ movie.title }}</p> 
+              <button class="btn p-0 btn-sm" (click)="addToWatchLater(movie)">
+              ➕
+            </button>  
+          </div> -->
+
+      </div>
+    </div>
+
+    } @empty {
+    <div class="col-12">
+      <div class="alert alert-warning text-center" role="alert">
+        No hay películas disponibles en este momento.
+      </div>
+    </div>
+    }
+  </div>
+  <app-movie-reproductor [videoUrl]="currentVideoUrl" [visible]="videoVisible" (closeModal)="closeVideo()">
+  </app-movie-reproductor>
+</div>

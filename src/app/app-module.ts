@@ -3,14 +3,20 @@ import { BrowserModule, provideClientHydration, withEventReplay } from '@angular
 
 import { AppRoutingModule } from './app-routing-module';
 import { App } from './app';
+import { MoviesList } from './movies-list/movies-list';
+import { WatchList } from './watch-list/watch-list';
+import { MovieReproductorComponent } from './movie-reproductor/movie-reproductor';
 
 @NgModule({
   declarations: [
-    App
+    App,
+    MoviesList,
+    WatchList,
+    MovieReproductorComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
   providers: [
     provideBrowserGlobalErrorListeners(),
