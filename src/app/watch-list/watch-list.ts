@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { FavoritesMovies } from '../favorites-movies';
+import { Movie } from '../movies-list/Movie'; // Ajustá la ruta si es necesario
+
 
 @Component({
   selector: 'app-watch-list',
@@ -6,6 +9,19 @@ import { Component } from '@angular/core';
   templateUrl: './watch-list.html',
   styleUrl: './watch-list.scss'
 })
-export class WatchList {
 
+export class WatchList {
+  videoVisible: boolean = false;
+  currentVideoUrl: string = '';
+  
+   constructor(public favoritesMovies: FavoritesMovies) {} 
+   
+  get favorites(): Movie[] {
+    return this.favoritesMovies.getFavorites();
+  }
+  playVideo(url: string) {
+    this.currentVideoUrl = url;
+    this.videoVisible = true;
+  }
+  
 }

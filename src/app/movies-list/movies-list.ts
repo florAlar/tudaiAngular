@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 
 import { Movie } from './Movie';
 
+ // Asegúrate de que la ruta sea correcta
+
 @Component({
   selector: 'app-movies-list',
   templateUrl: './movies-list.html',
@@ -10,9 +12,6 @@ import { Movie } from './Movie';
 
 })
 export class MoviesList {
-
-  videoVisible: boolean = false;
-  currentVideoUrl: string = '';
 
   movies: Movie[] = [
     {
@@ -40,6 +39,7 @@ export class MoviesList {
       year: 1999,
       poster: "assets/img/ultimapuerta.jpg",
       isFavorite: false,
+      isNew: true,
       url: "https://www.youtube.com/embed/h7nDh4ow4CM"
     },
     {
@@ -127,24 +127,4 @@ export class MoviesList {
   ]
 
 
-
-
-  toggleFavorite(movie: Movie) {
-    movie.isFavorite = !movie.isFavorite;
-    console.log(`Película ${movie.title} ahora es favorita: ${movie.isFavorite}`);
-  }
-
-  addToWatchLater(movie: Movie) {
-    console.log(`Película ${movie.title} agregada a "Ver más tarde"`);
-  }
-
-  playVideo(url: string) {
-    this.currentVideoUrl = url;
-    this.videoVisible = true;
-  }
-
-  closeVideo() {
-    this.videoVisible = false;
-    this.currentVideoUrl = '';
-  }
 }

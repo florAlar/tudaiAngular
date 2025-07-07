@@ -1,0 +1,28 @@
+.card-img-top {
+    object-fit: cover;
+    height: 250px;
+  }
+  
+  .movie-card .play-btn {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 2;
+  font-size: 1.5rem;
+  border-radius: 50%;
+  padding: 0.5rem 0.8rem;
+}
+
+.movie-card:hover .play-btn {
+  opacity: 1;
+}
+:host {
+  display: block;
+  aspect-ratio: 2 / 3; // o el que necesites (puede ser 16/9 si es un video horizontal)
+  height: 100%;
+  max-height: 250px;
+  overflow: hidden;
+}
+.card-content {
+  height: 100%;
+  object-fit: cover; // Para imágenes o contenido visual
+}

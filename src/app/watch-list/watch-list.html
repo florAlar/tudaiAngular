@@ -1,4 +1,19 @@
-<div class="container my-5 text-white">
-<h4 class="mb-4"> Continuar Viendo </h4>
+<!-- este componente se llama watchlist porque en un principio la idea era hacer una lista de "ver mas tarde" 
+ luego, la idea mutó a guardar las pelis en favoritos -->
+ 
+
+
+<div class="container  p-0 text-white">
+  <h4 class="mb-4">Continuar Viendo</h4>
+
+  <div class="d-flex overflow-auto gap-1 custom-scroll-row">
+    @for (movie of favorites; track movie.id) {
+      <div class="flex-shrink-0" style="width: 200px;">
+        <app-movie-card [movie]="movie"></app-movie-card>
+      </div>
+    } @empty {
+      <p class="text-white">No tenés películas favoritas.</p>
+    }
+  </div>
 </div>
 

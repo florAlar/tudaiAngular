@@ -3,23 +3,22 @@
   <div class="container-fluid">
     <div class="d-flex align-items-center">
       <img src="assets/img/tudaiLogo.png" alt="siteLogo" width="45" height="45" class="d-inline-block p-1 me-2">
-      <a class="navbar-brand" href="#">FlorFlix</a>
+      <a class="navbar-brand" [routerLink]="['']">FlorFlix</a>
     </div>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-            data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
-            aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+          <a class="nav-link active" aria-current="page" [routerLink]="['']">Inicio</a>
         </li>
+
         <li class="nav-item">
-          <a class="nav-link" href="#">Servicios</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Contacto</a>
+          <a class="nav-link" [routerLink]="['contact']">Contacto
+
+          </a>
         </li>
       </ul>
     </div>
@@ -27,22 +26,10 @@
 </nav>
 
 <!-- BODY PRINCIPAL -->
-<div class="container-fluid px-2 py-4 text-white" style="background: linear-gradient(180deg, #211c4b, #000000);">
-
-  <!-- Sección: Continuar viendo -->
-  <div class="row mb-4">
-    
-    <app-watch-list></app-watch-list>
-  </div>
-
-  <!-- Sección: Películas populares -->
-  <div class="row">
-    
-    <app-movies-list></app-movies-list>
-  </div>
-
+ <div class="container-fluid px-2 py-4 text-white" style="background: linear-gradient(180deg, #211c4b, #000000);">
+  <router-outlet></router-outlet>
 </div>
-
+ 
 <!-- FOOTER -->
 <footer class="text-white text-center py-3 mt-auto" style="background-color: #000000;">
   <p class="mb-0">© 2025 MiSitio. Todos los derechos reservados.</p>

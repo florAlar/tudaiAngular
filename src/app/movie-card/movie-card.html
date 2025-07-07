@@ -1,0 +1,35 @@
+<div>
+    <div class="col">
+        <div class=" movie-card h-100 position-relative" style="width: 100%; max-width: 200px; height: 150px;">
+
+            <!-- esto estaba en mvies-list (toggleFavorite)="toggleFavorite($event)"  (playVideo)="playVideo($event)"-->
+
+
+            <!-- cartelito si es nueva -->
+            @if (movie.isNew) {
+            <p class="badge position-absolute top-0 end-0 m-1 "
+                style="background-color: rgba(0, 0, 0, 0.767); font-weight: 500; font-size: 13x;">
+                🎞 EN EL CINE
+            </p>
+            }
+            <!-- boton de megusta -->
+            <button class="btn  me-0 fs-5 badge position-absolute bottom-0 end-0 m-0 " (click)="toggleFavorite(movie)">
+                {{ movie.isFavorite ? '❤️' : '🤍' }}
+            </button>
+
+            <!-- cartelera de peli -->
+            <img [src]="movie.poster" class="card-img-top" alt="Póster de {{ movie.title }} "
+                style="width: 100%; max-width:220px; height: 250px; " class=" rounded-3">
+
+            <!-- boton de play -->
+            <button class="btn play-btn position-absolute top-50 start-50 translate-middle ">
+                <img style="width: 80%; background-color: rgba(0, 0, 0, 0.199); " src="assets/img/playLogowhite.png"
+                    class="rounded-5" alt="" (click)="playVideo(movie.url)">
+            </button>
+
+        </div>
+    </div>
+    <!-- el reproductor esta presente en todas las peliculas pero no se muestra a menos que visible sea true -->
+    <app-movie-reproductor [videoUrl]="currentVideoUrl" [visible]="videoVisible" (closeModal)="closeVideo()">
+    </app-movie-reproductor>
+</div>
