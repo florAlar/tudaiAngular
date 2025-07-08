@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Movie } from './movies-list/Movie'; // Ajustá la ruta si es necesario
+import { Movie } from './movies-list/Movie'; 
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
@@ -22,7 +22,7 @@ export class FavoritesMovies {
    isFavorite(movie: Movie): boolean {
     return this._favoritesMovies.some(fav => fav.id === movie.id);
   }
-  
+
   /*en vez de hacer un metodo add hice toogle que agrega o elimina la pelicula de la lista de favoritos
    segun el valor de la variable boolean isFavorite.*/
 

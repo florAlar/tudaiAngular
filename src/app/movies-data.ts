@@ -11,10 +11,12 @@ const URL = 'https://686c628d14219674dcc7e6b5.mockapi.io/exaflix/movies';
 export class MoviesData {
 
   /* Use Behavior Subject para que se mantenga el estado de las peliculas, cuando navegaba hacia
-  otro componente, el estado de isFavorite de las peliculas se perdia,
-   y al volver a la lista de peliculas, no se mostraban las peliculas cargadas, y se desincronizaban las listas */
+   otro componente, el estado de isFavorite de las peliculas se perdia,
+   y al volver a la lista de peliculas, no se mostraban las peliculas cargadas, 
+   y se desincronizaban las listas */
 
   private moviesSubject = new BehaviorSubject<Movie[]>([]);
+
   public movies$: Observable<Movie[]> = this.moviesSubject.asObservable();
 
   constructor(private http: HttpClient) {

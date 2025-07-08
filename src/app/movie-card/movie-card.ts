@@ -19,18 +19,13 @@ export class MovieCard {
 
   constructor(public favoritesMovies: FavoritesMovies) { }
 
-  toggleFavorite(movie: Movie) {
-    
+  toggleFavorite(movie: Movie) {    
     //cambia el valor de isFavorite a su contrario;
     movie.isFavorite = !movie.isFavorite;
     //llama al servicio de favoritos para agregar o quitar la película de la lista de favoritos
-    this.favoritesMovies.toggleFavorite(movie);
-    
+    this.favoritesMovies.toggleFavorite(movie);    
   }
 
-  addToWatchLater(movie: Movie) {
-    console.log(`Película ${movie.title} agregada a "Ver más tarde"`);
-  }
   //setea la url del video a reproducir y muestra el modal
   playVideo(url: string) {
     this.currentVideoUrl = url;
