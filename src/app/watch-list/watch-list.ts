@@ -11,17 +11,13 @@ import { Movie } from '../movies-list/Movie'; // Ajustá la ruta si es necesario
 })
 
 export class WatchList {
-  videoVisible: boolean = false;
-  currentVideoUrl: string = '';
-  
-   constructor(public favoritesMovies: FavoritesMovies) {} 
+
+
+  constructor(private favoritesMovies: FavoritesMovies) {} 
    
   get favorites(): Movie[] {
     return this.favoritesMovies.getFavorites();
   }
-  playVideo(url: string) {
-    this.currentVideoUrl = url;
-    this.videoVisible = true;
-  }
+
   
 }

@@ -1,6 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
-import { Movie } from '../movies-list/Movie'; // Asegúrate de que la ruta sea correcta
+
 
 @Component({
   selector: 'app-movie-reproductor',
@@ -8,6 +8,7 @@ import { Movie } from '../movies-list/Movie'; // Asegúrate de que la ruta sea c
   styleUrls: ['./movie-reproductor.scss'],
   standalone: false,
 })
+
 export class MovieReproductor {
 
   //como componente de "ventana emergente" espero saber si estoy visible o no.

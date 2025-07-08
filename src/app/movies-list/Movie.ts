@@ -1,8 +1,7 @@
 export interface Movie {
     id: number;
     title: string;
-    overview: string;
-    year: number;
+    genre: string;    
     poster: string;
     isFavorite: boolean; 
     isNew?: boolean; 

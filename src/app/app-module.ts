@@ -9,6 +9,7 @@ import { MoviesList } from './movies-list/movies-list';
 import { MoviesContact } from './movies-contact/movies-contact';
 import { WatchList } from './watch-list/watch-list';
 import { MoviesHome } from './movies-home/movies-home';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { MoviesHome } from './movies-home/movies-home';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
   ],
   providers: [
     provideBrowserGlobalErrorListeners(),

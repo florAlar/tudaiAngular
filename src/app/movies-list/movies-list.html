@@ -1,17 +1,24 @@
 <div class="container my-5 text-white">
-  <h4 class="mb-4 "> Peliculas - Popular </h4>
+  <h4 class="mb-4"> Películas - Popular </h4>
   <div class="row row-cols-1 row-cols-sm-2 row-cols-md-6 g-3 justify-content-center">
 
-    @for (movie of movies; track movie.id) {
-    
-    <app-movie-card [movie]="movie"></app-movie-card>
-
-    } @empty {
-    <div class="col-12">
-      <div class="alert alert-warning text-center" role="alert">
-        No hay películas disponibles en este momento.
+    @if (movies | async; as movies) {
+      @for (movie of movies; track movie.id) {
+        <app-movie-card [movie]="movie"></app-movie-card>
+      } @empty {
+        <div class="col-12">
+          <div class="alert alert-warning text-center" role="alert">
+            No hay películas disponibles en este momento.
+          </div>
+        </div>
+      }
+    } @else {
+      <div class="col-12">
+        <div class="alert alert-info text-center" role="alert">
+          Cargando películas...
+        </div>
       </div>
-    </div>
     }
+
   </div>
 </div>

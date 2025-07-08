@@ -18,12 +18,14 @@ export class MovieCard {
   currentVideoUrl: string = '';
 
   constructor(public favoritesMovies: FavoritesMovies) { }
+
   toggleFavorite(movie: Movie) {
+    
     //cambia el valor de isFavorite a su contrario;
     movie.isFavorite = !movie.isFavorite;
     //llama al servicio de favoritos para agregar o quitar la película de la lista de favoritos
     this.favoritesMovies.toggleFavorite(movie);
-    movie.isFavorite = this.favoritesMovies.isFavorite(movie);
+    
   }
 
   addToWatchLater(movie: Movie) {
@@ -40,4 +42,5 @@ export class MovieCard {
     this.currentVideoUrl = '';
   }
 
+  
 }
