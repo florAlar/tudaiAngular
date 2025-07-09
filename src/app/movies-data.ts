@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Movie } from './movies-list/Movie';
-import { Observable, BehaviorSubject } from 'rxjs';
+import { Observable, BehaviorSubject,tap } from 'rxjs';
 
 const URL = 'https://686c628d14219674dcc7e6b5.mockapi.io/exaflix/movies';
 
@@ -35,4 +35,30 @@ export class MoviesData {
       error: (err) => console.error('Error loading movies:', err)
     });
   }
+  
+
+
+  //debo convertir la URL de YouTube a un formato de embed para poder mostrar el video en un iframe
+  private convertToEmbed(url?: string): string | null {
+    if (!url) return null;
+    const match = url.match(/(?:youtu\.be\/|youtube\.com\/watch\?v=)([a-zA-Z0-9_-]{11})/);
+    return match ? `https://www.youtube.com/embed/${match[1]}` : null;
+  }
+
+  postMovie(movie: Movie): Observable<Movie> {
+  const embedUrl = this.convertToEmbed(movie.url);
+  if (!embedUrl) {
+    throw new Error('URL de YouTube no válida');
+  }
+
+  const movieToPost: Movie = { ...movie, url: embedUrl };
+
+  return this.http.post<Movie>(URL, movieToPost).pipe(
+    tap((newMovie) => {
+      const currentMovies = this.moviesSubject.getValue();
+      this.moviesSubject.next([...currentMovies, newMovie]);
+    })
+  );
 }
+}
+ 

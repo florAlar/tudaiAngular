@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Movie } from '../movies-list/Movie';
 import { FavoritesMovies } from '../favorites-movies';
-
+import { MovieReproductor } from '../movie-reproductor/movie-reproductor';
 
 @Component({
   selector: 'app-movie-card',

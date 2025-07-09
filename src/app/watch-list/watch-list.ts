@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { FavoritesMovies } from '../favorites-movies';
-import { Movie } from '../movies-list/Movie'; // Ajustá la ruta si es necesario
+import { Movie } from '../movies-list/Movie'; 
+import { MovieCard } from '../movie-card/movie-card';
+import { MovieReproductor } from '../movie-reproductor/movie-reproductor';
 
 
 @Component({
@@ -11,7 +13,6 @@ import { Movie } from '../movies-list/Movie'; // Ajustá la ruta si es necesario
 })
 
 export class WatchList {
-
 
   constructor(private favoritesMovies: FavoritesMovies) {} 
    

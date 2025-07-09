@@ -1,6 +1,7 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
-
+import { Movie } from '../movies-list/Movie'; 
+import { FavoritesMovies } from '../favorites-movies';
 
 @Component({
   selector: 'app-movie-reproductor',
@@ -15,16 +16,15 @@ export class MovieReproductor {
   @Input() visible: boolean = false;  
   @Output() closeModal = new EventEmitter<void>();
 
+  @Input() set videoUrl(url: string) {
+    this.safeVideoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(url);
+  }
+
   // Variable para almacenar la URL del video de forma segura
   safeVideoUrl: SafeResourceUrl = '';
   
   // angular pide sanitizar las URLs de los videos para evitar problemas de seguridad
   constructor(private sanitizer: DomSanitizer) {}
-
-  @Input()
-  set videoUrl(url: string) {
-    this.safeVideoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(url);
-  }
 
   close() {
     this.closeModal.emit();

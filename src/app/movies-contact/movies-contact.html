@@ -1,8 +1,16 @@
 <!-- Sección: Continuar viendo -->
 <div class="row p-4">
+    @if (successMessage ) {
+    <div class="alert alert-success">
+        {{ successMessage }}
+    </div>
+    }
+
+    @if (errorMessage) {
+    <div class="alert alert-danger">
+        {{ errorMessage }}
+    </div>
+    }
     <div class="container  text-white"></div>
-    hola
+    <app-add-form (submitMovie)="onMovieSubmit($event)"> </app-add-form>
 </div>
-
-
-

@@ -10,7 +10,7 @@ const routes: Routes = [
     pathMatch: 'full',
   },
   {
-    path: 'contact',
+    path: 'add',
     component: MoviesContact,
     pathMatch: 'full', 
   } 

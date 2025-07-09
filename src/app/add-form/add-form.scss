@@ -1,0 +1,41 @@
+.form-bg {
+  background-color: rgba(255, 255, 255, 0.03); // fondo apenas visible
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.transparent-input {
+  background-color: transparent !important;
+  border: 1px solid rgba(255, 255, 255, 0.185);
+  color: #fff;
+
+  &::placeholder {
+    color: transparent;
+  }
+
+  &:focus {
+    background-color: transparent;
+    border-color: #fff;
+    box-shadow: none;
+    color: #fff;
+  }
+
+  &:focus::placeholder {
+    color: transparent;
+  }
+}
+
+.form-floating > label {
+  color: rgba(255, 255, 255, 0.6);
+  transition: all 0.2s ease-in-out;
+}
+
+.form-floating > .form-control:focus ~ label,
+.form-floating > .form-control:not(:placeholder-shown) ~ label {
+  color: #fff;
+}
+
+.form-check-input:checked {
+  background-color: #fff;
+  border-color: #fff;
+}
