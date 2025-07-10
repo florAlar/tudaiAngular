@@ -1,28 +1,48 @@
 <div class="container my-5">
-  
+
   <h4 class="mb-4"> Peliculas - Agregar </h4>
   <form [formGroup]="formAddMovies" (ngSubmit)="onSubmit()" novalidate class="p-4 rounded form-bg text-white">
-
+    <p>Todos los campos son obligatorios *</p>
     <div class="form-floating mb-4">
-      <input type="text" class="form-control transparent-input" id="title" placeholder="Título" formControlName="title" />
-      <label for="title">Título</label>
+      <input type="text" class="form-control transparent-input" id="title" placeholder="Título"
+        formControlName="title" />
+      <label for="title">Título * </label>
     </div>
 
     <div class="form-floating mb-4">
-      <input type="text" class="form-control transparent-input" id="genre" placeholder="Género" formControlName="genre" />
-      <label for="genre">Género</label>
+      <input type="text" class="form-control transparent-input" id="genre" placeholder="Género"
+        formControlName="genre" />
+      <label for="genre">Género * </label>
     </div>
 
     <div class="form-floating mb-4">
-      <input type="url" class="form-control transparent-input" id="poster" placeholder="Poster URL" formControlName="poster" />
-      <label for="poster">Poster (URL)</label>
+      <input type="url" class="form-control transparent-input" id="poster" placeholder="Poster URL"
+        formControlName="poster" />
+      <label for="poster">Cartelera (URL) *</label>
     </div>
+    @if (formAddMovies.get('poster')?.touched && formAddMovies.get('poster')?.invalid) {
+    <div class="text-danger small mt-1">
+     
+      @if (formAddMovies.get('poster')?.errors?.['pattern']) {
+      Debe ser una URL válida de imagen (.jpg, .png, .jpeg).
+      }
+    </div>}
+
 
     <div class="form-floating mb-4">
       <input type="url" class="form-control transparent-input" id="url" placeholder="Video URL" formControlName="url" />
-      <label for="url"> URL del video </label>
+      <label for="url"> URL del video * </label>
     </div>
-  
+
+    @if (formAddMovies.get('url')?.touched && formAddMovies.get('url')?.invalid) {
+    <div class="text-danger small mt-1">
+      
+      @if (formAddMovies.get('url')?.errors?.['pattern']) {
+      Debe ser una URL válida de YouTube.
+      }
+
+    </div>
+    }
     <div class="form-check form-switch mb-4">
       <input class="form-check-input bg-dark border border-white" type="checkbox" id="isNew" formControlName="isNew" />
       <label class="form-check-label text-white" for="isNew">Película nueva</label>
@@ -33,6 +53,7 @@
     </button>
 
   </form>
+
 </div>
 <pre>
     {{formAddMovies.get('title')?.value }}

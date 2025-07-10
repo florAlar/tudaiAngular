@@ -1,59 +1,87 @@
-# TudaiAngular
+# 🎬 EXAFlix
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.0.3.
+EXAFlix es una aplicación web desarrollada con **Angular** como parte de un proyecto académico. Permite agregar películas, marcarlas como favoritas y reproducir trailers directamente desde YouTube mediante una interfaz simple, moderna y reactiva.
 
-## Development server
+> Proyecto desarrollado con fines educativos para la carrera de Desarrollo de Aplicaciones Web (TUDAI).
 
-To start a local development server, run:
+---
 
+##  Tecnologías utilizadas
+
+- **Angular** (con uso de Control Flow)
+- **TypeScript**
+- **Bootstrap 5**
+- **Reactive Forms**
+- **RxJS / BehaviorSubject**
+- **MockAPI** (para simular backend)
+- **YouTube Embed Iframe**
+
+---
+
+##  Funcionalidades principales
+
+- ✅ Agregar nuevas películas mediante formulario reactivo
+- ✅ Validación de campos en tiempo real
+- ✅ Reproducción de trailers (YouTube embebido)
+- ✅ Marcar películas como favoritas
+- ✅ Listado de populares y favoritas
+- ✅ Persistencia simulada con MockAPI
+
+---
+
+##  Estructura del proyecto
+src/
+├── app/
+│ ├── add-form/ # Formulario para agregar películas
+│ ├── movie-card/ # Tarjeta de película con botones de "me gusta" y "reproducir"
+│ ├── movie-reproductor/ # Modal para reproducir trailers
+│ ├── movies-contact/ # Página donde se agrega la película
+│ ├── movies-home/ # Página principal (inicio)
+│ ├── movies-list/ # Lista de películas desde MockAPI
+│ ├── watch-list/ # Lista de películas favoritas
+│ ├── movies-data.ts # Servicio de datos (MockAPI + estado global)
+│ ├── favorites-movies.ts # Servicio para gestión de favoritos
+│ ├── Movie.ts # Modelo de datos de Peliculas
+│ └── app-routing.module.ts # Rutas: "/", "/add"
+
+--
+
+##  Validaciones del formulario
+
+Formulario reactivo en Angular con validaciones:
+
+- Todos los campos son requeridos. 
+- Cartelera (URL) : debe ser una URL válida de imagen (.jpg, .png, .jpeg) 
+- Video (URL) : debe ser una URL de YouTube válida (`watch?v=` o `youtu.be/`) 
+
+---
+
+##  Interfaz visual
+
+- Navbar con rutas a Inicio y Agregar
+- Listado principal con tarjetas de películas
+- Indicadores visuales de "🎞 EN EL CINE"
+- Botón "❤️ / 🤍" para favoritos
+- Modal para reproducción de video en iframe
+
+---
+
+##  API utilizada
+
+- [MockAPI.io](https://mockapi.io)  
+  Endpoint:  
+  `https://686c628d14219674dcc7e6b5.mockapi.io/exaflix/movies`
+
+---
+
+##  Cómo ejecutar el proyecto
+
+1. Abrí el proyecto en StackBlitz:
+   [Abrir EXAFlix en StackBlitz](https://stackblitz.com/~/github.com/florAlar/tudaiAngular) 
+
+2. O ejecutalo localmente:
 ```bash
+git clone https://github.com/florAlar/tudaiAngular
+cd tudaiAngular
+npm install
 ng serve
-```
-
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
