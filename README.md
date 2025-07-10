@@ -2,7 +2,9 @@
 
 EXAFlix es una aplicación web desarrollada con **Angular** como parte de un proyecto académico. Permite agregar películas, marcarlas como favoritas y reproducir trailers directamente desde YouTube mediante una interfaz simple, moderna y reactiva.
 
-> Proyecto desarrollado con fines educativos para la carrera de Desarrollo de Aplicaciones Web (TUDAI).
+> Proyecto desarrollado con fines educativos para la carrera de Desarrollo de Aplicaciones Informáticas (TUDAI).  Alarcos, Florencia. (36.608.008) - flor.alarcos@gmail.com - Sede Tandil
+
+
 
 ---
 
@@ -87,3 +89,4 @@ git clone https://github.com/florAlar/tudaiAngular
 cd tudaiAngular
 npm install
 ng serve
+
