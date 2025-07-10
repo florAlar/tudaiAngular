@@ -29,22 +29,24 @@ EXAFlix es una aplicación web desarrollada con **Angular** como parte de un pro
 
 ---
 
-##  Estructura del proyecto
-src/
-├── app/
-│ ├── add-form/ # Formulario para agregar películas
-│ ├── movie-card/ # Tarjeta de película con botones de "me gusta" y "reproducir"
-│ ├── movie-reproductor/ # Modal para reproducir trailers
-│ ├── movies-contact/ # Página donde se agrega la película
-│ ├── movies-home/ # Página principal (inicio)
-│ ├── movies-list/ # Lista de películas desde MockAPI
-│ ├── watch-list/ # Lista de películas favoritas
-│ ├── movies-data.ts # Servicio de datos (MockAPI + estado global)
-│ ├── favorites-movies.ts # Servicio para gestión de favoritos
-│ ├── Movie.ts # Modelo de datos de Peliculas
-│ └── app-routing.module.ts # Rutas: "/", "/add"
+## Estructura del Proyecto
 
---
+```
+src/
+└── app/
+    ├── add-form/             # Formulario para agregar películas
+    ├── movie-card/           # Tarjeta de película con botones de "me gusta" y "reproducir"
+    ├── movie-reproductor/    # Modal para reproducir trailers
+    ├── movies-contact/       # Página donde se agrega la película
+    ├── movies-home/          # Página principal (inicio)
+    ├── movies-list/          # Lista de películas desde MockAPI
+    ├── watch-list/           # Lista de películas favoritas
+    ├── movies-data.ts        # Servicio de datos (MockAPI + estado global)
+    ├── favorites-movies.ts   # Servicio para gestión de favoritos
+    ├── Movie.ts              # Modelo de datos de Películas
+    └── app-routing.module.ts # Rutas: "/", "/add"
+```
+
 
 ##  Validaciones del formulario
 
